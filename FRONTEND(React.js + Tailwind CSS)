@@ -1,0 +1,91 @@
+// /client/src/App.jsx
+import { useEffect, useState, useRef } from 'react';
+import io from 'socket.io-client';
+import './index.css';
+
+const socket = io('http://localhost:5000');
+
+function App() {
+  const [content, setContent] = useState('');
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    // Receive updated content from server
+    socket.on('document', (data) => {
+      setContent(data);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  const handleChange = (e) => {
+    const newText = e.target.value;
+    setContent(newText);
+    socket.emit('document', newText);
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-4">
+      <h1 className="text-3xl font-bold mb-4">Collaborative Document Editor</h1>
+      <textarea
+        ref={textRef}
+        className="w-full max-w-3xl h-96 p-4 text-lg border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+        value={content}
+        onChange={handleChange}
+        placeholder="Start typing here..."
+      ></textarea>
+    </div>
+  );
+}
+
+export default App;
+
+
+// /client/src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+
+// /client/index.html (Vite style if used)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collaborative Editor</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
+// /client/src/index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+// /client/tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
