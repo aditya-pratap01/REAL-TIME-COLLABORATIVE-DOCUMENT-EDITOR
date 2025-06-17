@@ -1,0 +1,25 @@
+const { Server } = require('socket.io');
+const io = new Server(server, {
+  cors: {
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST']
+  }
+});
+
+io.on('connection', async (socket) => {
+  console.log('New client connected:', socket.id);
+
+  // Send existing document to newly connected client
+  const doc = await Document.findOne() || await Document.create({ content: '' });
+  socket.emit('document', doc.content);
+
+  // Receive updated content from a client and broadcast to others
+  socket.on('document', async (newContent) => {
+    await Document.updateOne({}, { content: newContent });
+    socket.broadcast.emit('document', newContent); // update others
+  });
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected:', socket.id);
+  });
+});
