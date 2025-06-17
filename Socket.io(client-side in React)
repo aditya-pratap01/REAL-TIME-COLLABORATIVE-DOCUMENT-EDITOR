@@ -1,0 +1,18 @@
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000');
+
+useEffect(() => {
+  socket.on('document', (data) => {
+    setContent(data);
+  });
+
+  return () => {
+    socket.disconnect();
+  };
+}, []);
+
+const handleChange = (e) => {
+  const newText = e.target.value;
+  setContent(newText);
+  socket.emit('document', newText);
+};
