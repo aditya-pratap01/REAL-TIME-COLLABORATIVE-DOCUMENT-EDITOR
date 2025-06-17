@@ -1,0 +1,65 @@
+// /server/index.js
+const express = require('express');
+const http = require('http');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const { Server } = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST']
+  }
+});
+
+app.use(cors());
+app.use(express.json());
+
+// Connect to MongoDB
+mongoose.connect('mongodb://127.0.0.1:27017/collabdoc', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+const Document = mongoose.model('Document', new mongoose.Schema({
+  content: String
+}));
+
+io.on('connection', async (socket) => {
+  console.log('New client connected:', socket.id);
+
+  const doc = await Document.findOne() || await Document.create({ content: '' });
+  socket.emit('document', doc.content);
+
+  socket.on('document', async (newContent) => {
+    await Document.updateOne({}, { content: newContent });
+    socket.broadcast.emit('document', newContent);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected:', socket.id);
+  });
+});
+
+server.listen(5000, () => {
+  console.log('Server running on http://localhost:5000');
+});
+
+
+// /server/package.json
+{
+  "name": "collab-doc-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^7.6.1",
+    "socket.io": "^4.7.2"
+  }
+}
