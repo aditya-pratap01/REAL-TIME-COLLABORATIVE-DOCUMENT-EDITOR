@@ -43,13 +43,13 @@ The Real-Time Notes Editor is a web-based application that enables real-time col
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/real-time-notes-editor.git
+   git clone https://github.com/your-username/CollabBoard
    ```
 
 2. Navigate to the project directory:
 
    ```
-   cd real-time-notes-editor
+   cd CollabBoard
    ```
 
 3. Install dependencies:
