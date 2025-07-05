@@ -44,7 +44,6 @@ const EditorPage = () => {
           ({ clients, username, socketId }) => {
             if (username !== location.state?.username) {
               toast.success(`${username} joined the room.`);
-              // console.log(username);
             }
             setClients(clients);
 
@@ -108,7 +107,11 @@ const EditorPage = () => {
       <div className='aside'>
         <div className='asideInner'>
           <div className='logo'>
-            <img className='HomePageLogo' src='/DocsEditorLogo.png' alt='logo' />
+            <img 
+            src='/DocsEditorLogo.png' 
+            alt='logo' 
+            style={{ width: '180px', height: 'auto', display: 'block', margin: '0 auto 20px' }} 
+            />
           </div>
           <h3>Connected</h3>
           <div className='clientsList'>
@@ -125,7 +128,7 @@ const EditorPage = () => {
       </div>
 
       <div className='editorWrap'>
-        <Editor socketRef={socketRef} roomId={roomId} onCodeChange={(code) => (codeRef.current = code)}/>
+        <Editor socketRef={socketRef} roomId={roomId} onCodeChange={(code) => (codeRef.current = code)} />
       </div>
     </div>
   );

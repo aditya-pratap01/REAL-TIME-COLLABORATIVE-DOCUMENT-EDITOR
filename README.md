@@ -1,9 +1,9 @@
-**Real-Time Notes Editor**
+#**Real-Time Notes Editor**
 
 ![Real-Time Notes Editor](/public/DocsEditorLogo.png)
 
 ---
-**Internship Details**
+##**Internship Details**
 
 -Company Name: CODTECH IT SOLUTIONS
 -Name: Shweta
@@ -13,14 +13,14 @@
 -Mentor: Neela Santosh
 
 
-**Description:**
+##**Description:**
 
 The Real-Time Notes Editor is a web-based application that enables real-time collaborative editing of notes. Built using Node.js, Express.js, React, Socket.io, and Codemirror, this project provides users with a seamless platform for creating, sharing, and editing notes in real-time, fostering efficient collaboration among teams and groups.
 
 
 ---
 
-**Features:**
+##**Features:**
 
 - **Real-Time Collaboration:** Multiple users can edit the same note simultaneously, with changes being instantly synchronized across all connected clients.
 - **User Management:** Users can join note editing sessions using unique Room IDs and usernames, allowing them to identify collaborators and track contributions.
@@ -30,7 +30,7 @@ The Real-Time Notes Editor is a web-based application that enables real-time col
 
 ---
 
-**Dependencies:**
+##**Dependencies:**
 
 - Node.js
 - Express.js
@@ -40,7 +40,7 @@ The Real-Time Notes Editor is a web-based application that enables real-time col
 
 ---
 
-**Installation:**
+##**Installation:**
 
 1. Clone the repository:
 
@@ -70,7 +70,7 @@ The Real-Time Notes Editor is a web-based application that enables real-time col
 
 ---
 
-**Usage:**
+##**Usage:**
 
 1. Open the application in your web browser.
 2. On the Home Page, either create a new room by clicking "Create New Room" or join an existing room by entering a Room ID and a username.
@@ -78,7 +78,7 @@ The Real-Time Notes Editor is a web-based application that enables real-time col
 4. Use the "Copy Room ID" button to share the Room ID with collaborators, and use the "Leave" button to exit the note editing session when finished.
 ---
 
-**Contributing:**
+##**Contributing:**
 
 Contributions are welcome! If you would like to contribute to this project, please follow these steps:
 
@@ -91,7 +91,7 @@ Contributions are welcome! If you would like to contribute to this project, plea
 ---
 
 
-**Acknowledgements:**
+##**Acknowledgements:**
 
 - [Socket.io](https://socket.io/) for real-time communication.
 - [Codemirror](https://codemirror.net/) for the text editor component.
@@ -99,18 +99,18 @@ Contributions are welcome! If you would like to contribute to this project, plea
 
 ---
 
-**Author:**
+##**Author:**
 
 [Shweta](https://github.com/shwetarx)
 
 ---
 
-**Contact:**
+##**Contact:**
 
-For inquiries or support, please contact [Through Mail @Click Here](mailto:shwetarx@gmail.com).
+For inquiries or support, please contact [shwetarx@gmail.com](mailto:shwetarx@gmail.com).
 
 ---
 
-**Project Status:**
+##**Project Status:**
 
 This project is actively maintained and open to contributions. Feel free to submit bug reports, feature requests, or pull requests to improve the application.
