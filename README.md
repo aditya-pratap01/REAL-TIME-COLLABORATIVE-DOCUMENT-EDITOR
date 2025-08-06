@@ -97,18 +97,6 @@ Contributions are welcome! If you would like to contribute to this project, plea
 
 ---
 
-**Author:**
-
-[Shweta](https://github.com/shwetarx)
-
----
-
-**Contact:**
-
-For inquiries or support, please contact [shwetarx@gmail.com](mailto:shwetarx@gmail.com).
-
----
-
 **Project Status:**
 
 This project is actively maintained and open to contributions. Feel free to submit bug reports, feature requests, or pull requests to improve the application.
