@@ -4,11 +4,17 @@
 **Internship Details**
 
 -Company Name: CODTECH IT SOLUTIONS
--Name: Shweta
+
+-Name: Aditya pratap
+
 -Intern ID: CT06DM136
+
 -Domain: Web Development
--Duration: 6 Weeks
+
+-Duration: 4 Weeks
+
 -Mentor: Neela Santosh
+
 
 
 **Description:**
